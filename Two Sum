@@ -1,0 +1,12 @@
+# https://leetcode.com/problems/two-sum/
+
+class Solution:
+    def twoSum(self, nums: List[int], target: int) -> List[int]:
+        ln = int(len(nums))
+        hash_table = {}
+        for x in range(ln):
+            res = hash_table.get(target-nums[x])
+            if res != None:
+                return [x,res]
+            else:
+                hash_table[nums[x]] = x
