@@ -1,0 +1,21 @@
+# https://leetcode.com/problems/middle-of-the-linked-list/
+
+# Definition for singly-linked list.
+# class ListNode:
+#     def __init__(self, val=0, next=None):
+#         self.val = val
+#         self.next = next
+class Solution:
+    def middleNode(self, head: Optional[ListNode]) -> Optional[ListNode]:
+        n_cnt = 0
+        tmp = head
+        while tmp != None:
+            n_cnt+=1
+            tmp=tmp.next
+        mid = n_cnt // 2
+        t = -1
+        while head != None:
+            t+=1
+            if t == mid:
+                return head
+            head = head.next
