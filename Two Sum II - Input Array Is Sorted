@@ -1,0 +1,11 @@
+# https://leetcode.com/problems/two-sum-ii-input-array-is-sorted/
+
+class Solution:
+    def twoSum(self, numbers: List[int], target: int) -> List[int]:
+        hash_map = {}
+        for x in range(len(numbers)):
+            r = target-numbers[x]
+            if r in hash_map:
+                return [hash_map.get(r)+1,x+1]
+            else:
+                hash_map[numbers[x]]=x
