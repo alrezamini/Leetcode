@@ -1,0 +1,27 @@
+# https://leetcode.com/problems/squares-of-a-sorted-array/
+
+class Solution:
+    def sortedSquares(self, nums: List[int]) -> List[int]:
+        lst = []
+        left = -1
+        rigth = 0
+        for x in range(len(nums)):
+            if nums[x] < 0:
+                left = x
+                continue
+            break
+        right = left+1
+        while left >= 0 and right < len(nums):
+            if abs(nums[left]) < nums[right]:
+                lst.append(nums[left]**2)
+                left-=1
+            else:
+                lst.append(nums[right]**2)
+                right+=1
+        if right < len(nums):
+            for x in range(right,len(nums),1):
+                lst.append(nums[x]**2)
+        else:
+            for x in range(left,-1,-1):
+                lst.append(nums[x]**2)
+        return lst
